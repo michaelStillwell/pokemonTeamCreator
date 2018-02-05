@@ -18,22 +18,24 @@ class YourTeams extends Component {
     }
 
     GetYourTeams() {
+        let { kin } = this.state;
+        let { index } = this.props;
         axios
             .get('/api/teams')
             .then(response => {
                 this.setState({ teams: response.data });
+                this.setState({ kin: index });
             })
             .catch(console.log);
     }
 
-    handleUpdate(team, title, teams) {
-        // let { index } = this.props;
+    handleUpdate(team, title, teams, index) {
         let t;
         if ( team.length === 6 ) {
-            t = { [title]: team, id: 0 };
+            t = { [title]: team, id: index };
     
             axios
-                .put('/api/update', t)
+                .put('/api/update', { [title]: team, id: index })
                 .catch(console.log)
         } else {
             alert('Need 6 mons to update!');
@@ -43,7 +45,6 @@ class YourTeams extends Component {
     render() {
         let { teams } = this.state;
         let { team, update, title, index } = this.props;
-        console.log(this.state.teams)
         return (
             <div>
                 <div>
@@ -68,7 +69,6 @@ class YourTeams extends Component {
                                 id={x.id} 
                                 key={x.id}
                                 onClick={e => {
-                                    alert(x.id);
                                     let d = x.id;
                                     this.props.updateTeam(e.target.id, teams, d);
                                 }}

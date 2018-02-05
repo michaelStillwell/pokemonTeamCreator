@@ -12,9 +12,10 @@ class saveButton extends Component {
         super(props);
 
         this.state = {
-            title: '',
+            title: this.props.title,
         }
         this.handleChange = this.handleChange.bind(this);
+        this.deleteTeam   = this.deleteTeam.bind(this);
     }
 
     handleChange(v) {
@@ -23,24 +24,25 @@ class saveButton extends Component {
     }
 
     deleteTeam(v) {
+        // console.log(v);
         axios
             .delete(`/api/delete/${v}`)
-            .then(response => console.log(response))
             .catch(console.log);
     }
 
     handleUpdate(up) {
         let { title } = this.state;
-        let { team }  = this.props;
+        let { team, index }  = this.props;
+        console.log(index);
         if ( up === true ) {
             return (
                 <div>
                     <button
-                        onClick={() => this.props.handleUpdate(team, title, this.props.teams)}
+                        onClick={() => this.props.handleUpdate(team, title, this.props.teams, this.props.index)}
                         >UPDATE
                     </button>
                     <button
-                        onClick={() => this.deleteTeam()} 
+                        onClick={() => this.deleteTeam(index)} 
                         >DELETE
                     </button>
                 </div>

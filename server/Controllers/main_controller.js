@@ -33,9 +33,16 @@ const update = (req, res, next) => {
 
 const destroy = (req, res, next) => {
     let { id } = req.params;
-    teams.splice(id, 1);
+    let num = 0;
+    for ( let x = 0; x < teams.length; x++ ) {
+        if ( teams[x].id === id ) {
+            num = teams.indexOf(teams[x]);
+        }
+    }
+    console.log(num)
+    teams.splice(num, 1);
     // teams = teams.map(x => x.id === id ? teams[x].splice(x) : x);
-    // teams = teams.filter(x => x.id !== id );
+    // teams = teams.filter(x => x.id === id );
     res.json(teams);
     console.log(id);
     console.log('Delete request completed.');

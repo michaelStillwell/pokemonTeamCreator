@@ -61,7 +61,6 @@ class PokeDis extends Component {
         let o = t[d].id;
         let l = Object.keys(t[v]).shift();
         this.setState({ team: n, update: true, title: l, index: o });
-
     }
 
     render() {
