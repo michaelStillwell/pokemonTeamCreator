@@ -1,0 +1,49 @@
+body {
+    background: red;
+}
+
+.flex-center {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-container {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+}
+
+.onHover-changeColor {
+    width: 300px;
+    transition: 200ms;
+}
+
+.onHover-changeColor:hover {
+    color: white;
+    background: blue;
+}
+
+.title {
+    color: white;
+}
+
+.large-title {
+    color: green;
+}
+
+.input {
+    height: 16px;
+}
