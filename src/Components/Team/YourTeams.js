@@ -85,7 +85,9 @@ class YourTeams extends Component {
                     title={title}
                     teams={teams}
                     index={index}
-                    handleUpdate={this.handleUpdate} />
+                    handleUpdate={this.handleUpdate}
+                    cancel={this.props.cancel}
+                />
             </div>
         )
     }

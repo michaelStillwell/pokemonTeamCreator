@@ -57,6 +57,10 @@ class saveButton extends Component {
                         }   
                         >SAVE
                     </button>
+                    <button
+                        onClick={this.props.cancel}
+                        >CANCEL
+                    </button>
                 </div>
             )
         }

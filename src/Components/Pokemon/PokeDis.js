@@ -20,6 +20,7 @@ class PokeDis extends Component {
         this.showResults  = this.showResults.bind(this);
         this.addToTeam    = this.addToTeam.bind(this);
         this.updateTeam   = this.updateTeam.bind(this);
+        this.cancel       = this.cancel.bind(this);
     }
 
     handleChange(v) {
@@ -36,6 +37,10 @@ class PokeDis extends Component {
         }
         console.log(n);
         this.setState({ team: n });
+    }
+
+    cancel() {
+        this.setState({ team: [], title: '' });
     }
 
     showResults() {
@@ -76,6 +81,7 @@ class PokeDis extends Component {
                 </div>
                 <YourTeams 
                     updateTeam={this.updateTeam} 
+                    cancel={this.cancel}
                     team={team} 
                     title={title}
                     update={update} 
