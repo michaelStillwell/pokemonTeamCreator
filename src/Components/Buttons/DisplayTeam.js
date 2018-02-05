@@ -6,7 +6,7 @@ import React from 'react';
 const displayTeam = a => a.map(x => {
     return (
         <div key={x} id={x}>
-            <li className='flex-right'>
+            <li className='flex-center'>
             <button
                 className='onHover-changeColor'
                 onClick={() => {

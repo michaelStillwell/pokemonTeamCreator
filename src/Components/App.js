@@ -1,3 +1,12 @@
+// Fourth iteration of this app. 
+// Delete still doesn't work correctly
+// Update is still finnicky and needs tinkering
+// Poor structring, needs to be restructured
+// Title doesn't update correctly when left blank
+// Needs more styling
+// Sloppy coding and scripting, ie need to find a dynamic fix to a problem rather than solve this one
+// Poor Variable naming
+
 // React Imports
 import React, { Component } from 'react';
 

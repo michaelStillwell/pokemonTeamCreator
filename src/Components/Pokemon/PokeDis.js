@@ -49,7 +49,7 @@ class PokeDis extends Component {
         return base.map(x => {
             return (
                 <button 
-                    className='onHover-changeColor'
+                    className='onHover-changeColor flex-center'
                     onClick={() => this.addToTeam(x)}
                     key={x}
                     id={x}

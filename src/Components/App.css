@@ -33,6 +33,7 @@ body {
 
 .onHover-changeColor:hover {
     color: white;
+    border-radius: 50px;
     background: blue;
 }
 
@@ -41,7 +42,7 @@ body {
 }
 
 .large-title {
-    color: green;
+    color: gray;
 }
 
 .input {
