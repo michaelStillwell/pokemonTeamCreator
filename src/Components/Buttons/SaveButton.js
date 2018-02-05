@@ -19,12 +19,10 @@ class saveButton extends Component {
     }
 
     handleChange(v) {
-        console.log(v);
         v.length ? this.setState({ title: v }) : this.setState({ title: this.props.title });
     }
 
     deleteTeam(v) {
-        // console.log(v);
         axios
             .delete(`/api/delete/${v}`)
             .catch(console.log);
@@ -33,7 +31,6 @@ class saveButton extends Component {
     handleUpdate(up) {
         let { title } = this.state;
         let { team, index }  = this.props;
-        console.log(index);
         if ( up === true ) {
             return (
                 <div>

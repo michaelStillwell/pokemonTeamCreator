@@ -24,7 +24,6 @@ class PokeDis extends Component {
     }
 
     handleChange(v) {
-        console.log(v);
         v.length ? this.setState({ term: v }) : this.setState({ term: '' });
     }
 
@@ -35,7 +34,6 @@ class PokeDis extends Component {
                 n.push(v);
             }
         }
-        console.log(n);
         this.setState({ team: n });
     }
 

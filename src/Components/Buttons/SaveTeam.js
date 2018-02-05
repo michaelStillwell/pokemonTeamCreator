@@ -14,7 +14,7 @@ const SaveTeam = (team, title) => {
         axios
             .post('/api/post', t)
             .then(response => {
-                console.log(response);
+                alert('Team saved!');
             })
             .catch(console.log)
     } else {

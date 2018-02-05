@@ -12,7 +12,6 @@ const displayTeam = a => a.map(x => {
                 onClick={() => {
                     a.splice(a.indexOf(x), 1);
                     document.getElementById(x).style.display = 'none';
-                    console.log(a);
                 }}
                 >{x}
             </button>

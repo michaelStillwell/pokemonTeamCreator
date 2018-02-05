@@ -18,7 +18,6 @@ class YourTeams extends Component {
     }
 
     GetYourTeams() {
-        let { kin } = this.state;
         let { index } = this.props;
         axios
             .get('/api/teams')
@@ -30,10 +29,7 @@ class YourTeams extends Component {
     }
 
     handleUpdate(team, title, teams, index) {
-        let t;
         if ( team.length === 6 ) {
-            t = { [title]: team, id: index };
-    
             axios
                 .put('/api/update', { [title]: team, id: index })
                 .catch(console.log)
