@@ -7,6 +7,8 @@
 // Sloppy coding and scripting, ie need to find a dynamic fix to a problem rather than solve this one
 // Poor Variable naming
 
+// Module not found error? 
+
 // React Imports
 import React, { Component } from 'react';
 
@@ -17,7 +19,8 @@ import axios from 'axios';
 import './App.css';
 
 // Component Imports 
-import PokeDis from './Pokemon/PokeDis';
+import Buttons from './Buttons/Buttons';
+import Button_Current from './Buttons/Button_Current';
 
 class App extends Component {
     constructor() {
@@ -25,7 +28,13 @@ class App extends Component {
 
         this.state = {
             poke: [],
+            teams: ['a', 'b', 'e'],
+            currentTeam: [],
+            currentTitle: '',
+            update: false,
         }
+        // App Functions
+        this.addToTeam = this.addToTeam.bind(this);
     }
 
     componentDidMount() {
@@ -35,17 +44,57 @@ class App extends Component {
                 this.setState({ poke: response.data })
             })
             .catch(console.log);
+        // axios
+        //     .get('/api/teams')
+        //     .then(response => {
+        //         this.setState({ teams: response.data })
+        //     })
+        //     .catch(err => console.log(err));
+    }
+
+    addToTeam(val) {
+        let t = this.state.currentTeam.slice();
+
+        !t.includes(val) && t.length < 6 
+        ? t.push(val) 
+        : t; 
+
+        this.setState({ currentTeam: t });
+        console.log(this.state.currentTeam)
     }
 
     render() {
-        let { poke } = this.state;
+        // Variable Props
+        let { 
+            poke, 
+            teams, 
+            currentTeam, 
+            currentTitle, 
+            update 
+        } = this.state;
+
         return (
             <div>
                 <div>
-                    <PokeDis poke={poke} />
-                </div>
-                <div>
-
+                    <Buttons 
+                        poke={poke}
+                        currentTeam={currentTeam}
+                        addToTeam={this.addToTeam}
+                    />
+                {/* {
+                    poke.map(x => {
+                        return <button key={x}>
+                            {x}
+                        </button>
+                    }) 
+                }
+                {
+                    this.state.teams.map(x => {
+                        return <button key={x}>
+                            {x}
+                        </button>
+                    })
+                } */}
                 </div>
             </div>
         )

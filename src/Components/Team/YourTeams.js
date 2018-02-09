@@ -23,7 +23,6 @@ class YourTeams extends Component {
             .get('/api/teams')
             .then(response => {
                 this.setState({ teams: response.data });
-                this.setState({ kin: index });
             })
             .catch(console.log);
     }
